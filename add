@@ -1,0 +1,59 @@
+class Solution {
+
+ divide(N,head){
+
+  //code here
+
+  if (head === null || head.next === null) {
+
+    return head;
+
+  }
+
+   
+
+  const dummyEven = new Node(-1);
+
+  const dummyOdd = new Node(-1);
+
+  let evenTail = dummyEven;
+
+  let oddTail = dummyOdd;
+
+   
+
+  while (head) {
+
+    if (head.data % 2 !== 0) {
+
+      oddTail.next = head;
+
+      oddTail = oddTail.next;
+
+    } else {
+
+      evenTail.next = head;
+
+      evenTail = evenTail.next;
+
+    }
+
+     
+
+    head = head.next;
+
+  }
+
+   
+
+  oddTail.next = null;
+
+  evenTail.next = dummyOdd.next;
+
+   
+
+  return dummyEven.next
+
+ }
+
+}
